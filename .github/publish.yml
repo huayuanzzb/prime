@@ -1,0 +1,22 @@
+name: Publish
+on:
+  push:
+    branches:
+      - prod
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+        
+      - name: Vue Github Actions
+        uses: xRealNeon/VuePagesAction@1.0.1
+        with:
+          username: 'recaton'
+          reponame: 'prime'
+          token: ${{ secrets.GITHUB_TOKEN }}
